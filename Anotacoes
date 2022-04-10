@@ -1,0 +1,116 @@
+Dependencias ou ferramentas necess�rias para rodar:
+
+-> Cucumber
+-> JUnit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Arquivos:
+.feature - Arquivo que cont�m as espec�fica��es dos casos de teste. 
+	Abaixo um exemplo da estrutura desse arquivo:
+		Feature: Aprender Cucumber
+			Como um aluno
+			Eu quero aprender a utilizar Cucumber
+			Pra que eu possa automatizar crit�rios de aceita��o
+		
+		Scenario: Deve executar especificacao
+			Given que eu criei um arquivo corretamente
+			When executa-lo 
+			Then a especifica��o devefinalizar com sucesso
+
+
+
+Cucumber options;
+	features= Indica ao runner onde ele ir� encotrar a feature,
+	glue = Indica ao runner onde ele ir� encotrar os steps,
+	plugin = Deixa o formato de saida do console do JUnit igual o do Cucumber ,
+	snippets = permite escolher o padr�o do formato de c�digo (Camel Case, PascalCase etc)
+	tags = Para indicar qual cen�rio ou funcionalidade ser� executada. 
+			Algumas formas de usar: 
+				"@Teste1", 
+				"~@Ignore"(Para ignorar steps com uma tag espec�fica), 
+				{"@teste1", "@teste2"} (cen�rios que tem somente as duas tags),
+				{"@teste1, @teste2"} (Pegar� cen�rios que tem ou teste1 ou teste2)
+
+
+
+
+Testes guiados por dados: 
+	Data-driven -Usa esquema de cen�rio
+		Ex: 
+			Scenario Outline: Deve dar condicoes conforme tipo de aluguel
+				Given ...
+				When ...
+				Then ...
+	
+			Examples:
+				| preco | tipo      | valor | qtdDias | pontuacao |
+				|  4    | extendido	|   8   |    3    |     2     |
+
+
+
+
+
+
+Contexto (Background) 
+	Executa steps que se repetem entre os cen�rios
+		Ex: 
+			Background: 
+				Dado...
+				Quando...
+				Etc...
+
+
+
+
+Reports
+
+	Alguns dos formatos que podemos gerar relat�rios s�o no formato HTML e Json.
+	Atrav�s da option do Cucumber: plugin: {"pretty", "html:target/report-html"}
+
+
+
+
+Rodar por linha de comando:
+	Primeiro para rodar por linha de comando � necess�rio mudar o nome do arquivo Runner para RunnerTest
+
+
+Atalhos 
+CTRL + SHIFT + F - Para identar
+CTRL + SHIFT + O - Importar todas as depend�ncias pendentes de importa��o
+
+
+
+Selenium - Biblioteca que permite a comunica��o com o Browser
+Chromedriver - Permite que o Slenium se comunique com o navegador google
+
+
+
+
+
+Cenários Declarativos e Imperativos
+
+-> Imperativos
+Declara exatamente o que e como deve ser feito o teste na aplicação
+
+-> Declarativos
+Diz somente o que será testado e não necessáriamente todos os passos que serão necessários para concluir aquele passo
+
+
+
+
+
